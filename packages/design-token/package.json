@@ -1,0 +1,25 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urock-namHyunWooB/design-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urock-namHyunWooB/design-system/issues"
+  },
+  "homepage": "https://github.com/urock-namHyunWooB/design-system#readme",
+  "description": "",
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^2.0.1",
+    "sd-tailwindcss-transformer": "^2.2.1",
+    "style-dictionary": "^5.0.4"
+  }
+}
