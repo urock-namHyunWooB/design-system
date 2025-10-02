@@ -1,0 +1,111 @@
+{
+  "version": "0.0.1",
+  "component": "button",
+
+  "sizes": {
+    "S": {
+      "container": { "height": 28, "radius": 8 },
+      "padding": { "top": 4, "right": 8, "bottom": 4, "left": 8 },
+      "label": { "size": 13 },
+      "icon": { "size": 14 }
+    },
+    "M": {
+      "container": { "height": 40, "radius": 10 },
+      "padding": { "top": 8, "right": 12, "bottom": 8, "left": 12 },
+      "gap": 2,
+      "label": { "size": 14 },
+      "icon": { "size": 16 }
+    },
+    "L": {
+      "container": { "height": 56, "radius": 12 },
+      "padding": { "top": 16, "right": 28, "bottom": 16, "left": 28 },
+      "gap": 4,
+      "label": { "size": 16 },
+      "icon": { "size": 18 }
+    }
+  },
+
+  "types": {
+    "filled": {
+      "container": {
+        "bg": "{Color/primary/01}",
+        "border": { "width": 0, "color": "transparent" },
+        "shadow": "{Effect/shadow/btn_filled-blue-16}"
+      },
+      "label": { "color": "{Color/text/00}" }
+    },
+    "outlined-black": {
+      "container": {
+        "bg": "transparent",
+        "border": { "width": 1, "color": "{Color/text/03-high}" },
+        "shadow": "{Effect/shadow/btn_outlined-black-3}"
+      },
+      "label": { "color": "{Color/text/03-high}" }
+    },
+    "outlined-blue": {
+      "container": {
+        "bg": "transparent",
+        "border": { "width": 1, "color": "{Color/primary/01}" },
+        "shadow": "{Effect/shadow/btn_outlined-blue-3}"
+      },
+      "label": { "color": "{Color/primary/01}" }
+    },
+    "outlined-red": {
+      "container": {
+        "bg": "transparent",
+        "border": { "width": 1, "color": "{Color/state/error}" },
+        "shadow": "{Effect/shadow/btn_outlined-red-3}"
+      },
+      "label": { "color": "{Color/text/error}" }
+    },
+    "text-blue": {
+      "container": {
+        "bg": "transparent",
+        "border": { "width": 0, "color": "transparent" }
+      },
+      "label": { "color": "{Color/primary/01}" }
+    },
+    "text-black": {
+      "container": {
+        "bg": "transparent",
+        "border": { "width": 0, "color": "transparent" }
+      },
+      "label": { "color": "{Color/text/03-high}" }
+    },
+    "filled-red": {
+      "container": {
+        "bg": "{Color/state/error}",
+        "border": { "width": 0, "color": "transparent" },
+        "shadow": "{Effect/shadow/btn_filled-red-16}"
+      },
+      "label": { "color": "{Color/text/00}" }
+    }
+  },
+
+  "responsive": {
+    "mobile": {
+      "S": {
+        "container": { "height": 28 },
+        "padding": { "top": 6, "right": 12, "bottom": 6, "left": 12 },
+        "label": { "size": 12 }
+      },
+      "M": {
+        "container": { "height": 36 },
+        "padding": { "top": 10, "right": 20, "bottom": 10, "left": 20 },
+        "label": { "size": 14 }
+      },
+      "L": {
+        "container": { "height": 44 },
+        "padding": { "top": 14, "right": 28, "bottom": 14, "left": 28 },
+        "label": { "size": 16 }
+      }
+    }
+  },
+
+  "accessibility": {
+    "role": "button",
+    "tabIndex": 0,
+    "minSize": { "width": 44, "height": 44 },
+    "keyboard": { "Enter": "activate", "Space": "activate" }
+  }
+}
