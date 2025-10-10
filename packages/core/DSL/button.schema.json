@@ -1,18 +1,30 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Button DSL 0.0.1",
+  "title": "Button DSL",
   "type": "object",
-  "required": ["version", "component", "sizes", "types"],
+  "required": ["component", "sizes", "types"],
   "properties": {
-    "version": { "type": "string", "const": "0.0.1" },
-    "component": { "type": "string", "const": "button" },
+    "version": {
+      "type": "string",
+      "description": "DSL version (optional, will use package.json version if not specified)"
+    },
+    "component": {
+      "type": "string",
+      "const": "button"
+    },
     "sizes": {
       "type": "object",
       "required": ["S", "M", "L"],
       "properties": {
-        "S": { "$ref": "#/$defs/sizeSpec" },
-        "M": { "$ref": "#/$defs/sizeSpec" },
-        "L": { "$ref": "#/$defs/sizeSpec" }
+        "S": {
+          "$ref": "#/$defs/sizeSpec"
+        },
+        "M": {
+          "$ref": "#/$defs/sizeSpec"
+        },
+        "L": {
+          "$ref": "#/$defs/sizeSpec"
+        }
       },
       "additionalProperties": false
     },
@@ -28,18 +40,38 @@
         "filled-red"
       ],
       "properties": {
-        "filled": { "$ref": "#/$defs/typeSpec" },
-        "outlined-black": { "$ref": "#/$defs/typeSpec" },
-        "outlined-blue": { "$ref": "#/$defs/typeSpec" },
-        "outlined-red": { "$ref": "#/$defs/typeSpec" },
-        "text-blue": { "$ref": "#/$defs/typeSpec" },
-        "text-black": { "$ref": "#/$defs/typeSpec" },
-        "filled-red": { "$ref": "#/$defs/typeSpec" }
+        "filled": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "outlined-black": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "outlined-blue": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "outlined-red": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "text-blue": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "text-black": {
+          "$ref": "#/$defs/typeSpec"
+        },
+        "filled-red": {
+          "$ref": "#/$defs/typeSpec"
+        }
       },
       "additionalProperties": false
     },
-    "responsive": { "type": "object", "additionalProperties": true },
-    "accessibility": { "type": "object", "additionalProperties": true }
+    "responsive": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": true
+    }
   },
   "$defs": {
     "sizeSpec": {
@@ -50,8 +82,14 @@
           "type": "object",
           "required": ["height", "radius"],
           "properties": {
-            "height": { "type": "number", "minimum": 0 },
-            "radius": { "type": "number", "minimum": 0 }
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0
+            }
           },
           "additionalProperties": false
         },
@@ -59,22 +97,47 @@
           "type": "object",
           "required": ["top", "right", "bottom", "left"],
           "properties": {
-            "top": { "type": "number", "minimum": 0 },
-            "right": { "type": "number", "minimum": 0 },
-            "bottom": { "type": "number", "minimum": 0 },
-            "left": { "type": "number", "minimum": 0 }
+            "top": {
+              "type": "number",
+              "minimum": 0
+            },
+            "right": {
+              "type": "number",
+              "minimum": 0
+            },
+            "bottom": {
+              "type": "number",
+              "minimum": 0
+            },
+            "left": {
+              "type": "number",
+              "minimum": 0
+            }
           },
           "additionalProperties": false
         },
-        "gap": { "type": "number", "minimum": 0 },
+        "gap": {
+          "type": "number",
+          "minimum": 0
+        },
         "label": {
           "type": "object",
-          "properties": { "size": { "type": "number", "minimum": 0 } },
+          "properties": {
+            "size": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
           "additionalProperties": false
         },
         "icon": {
           "type": "object",
-          "properties": { "size": { "type": "number", "minimum": 0 } },
+          "properties": {
+            "size": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
           "additionalProperties": false
         }
       },
@@ -88,24 +151,39 @@
           "type": "object",
           "required": ["bg", "border"],
           "properties": {
-            "bg": { "type": ["string", "null"] },
+            "bg": {
+              "type": "object"
+            },
             "border": {
               "type": "object",
               "required": ["width", "color"],
               "properties": {
-                "width": { "type": "number", "minimum": 0 },
-                "color": { "type": "string", "minLength": 1 }
+                "width": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "color": {
+                  "type": "string",
+                  "minLength": 1
+                }
               },
               "additionalProperties": false
             },
-            "shadow": { "type": ["string", "null"] }
+            "shadow": {
+              "type": ["string", "null"]
+            }
           },
           "additionalProperties": false
         },
         "label": {
           "type": "object",
           "required": ["color"],
-          "properties": { "color": { "type": "string", "minLength": 1 } },
+          "properties": {
+            "color": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
           "additionalProperties": false
         }
       },

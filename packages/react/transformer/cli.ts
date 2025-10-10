@@ -23,7 +23,7 @@ async function main() {
 
   const defaultTokenPath = path.join(
     process.cwd(),
-    "../design-token/default-token.json"
+    "../design-token/default-token.json",
   );
 
   const tokenPath =
@@ -43,7 +43,7 @@ async function main() {
 
       if (!dslDir || !outputDir) {
         console.error(
-          'Error: dslDir and outputDir are required for "all" command'
+          'Error: dslDir and outputDir are required for "all" command',
         );
         process.exit(1);
       }
@@ -59,7 +59,7 @@ async function main() {
         path.resolve(dslDir),
         path.resolve(tokenPath || ""),
         path.resolve(outputDir),
-        options
+        options,
       );
 
       const successCount = results.filter((r) => r.success).length;
@@ -80,7 +80,6 @@ async function main() {
       }
     } else {
       console.error(`Error: Unknown command "${command}"`);
-      printHelp();
       process.exit(1);
     }
   } catch (error: any) {

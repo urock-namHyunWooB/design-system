@@ -15,9 +15,10 @@ export function validateDSL(dslData: DSLData): boolean {
     throw new Error('DSL must have a "component" field');
   }
 
-  if (!dslData.version) {
-    throw new Error('DSL must have a "version" field');
-  }
+  // version은 선택적 - 없으면 자동으로 package.json 버전 사용
+  // if (!dslData.version) {
+  //   console.warn('Warning: DSL version not specified, will use package version');
+  // }
 
   if (!dslData.sizes && !dslData.types) {
     throw new Error('DSL must have at least "sizes" or "types" field');
@@ -54,11 +55,26 @@ export function parseDSL(dslContent: string): DSLData {
 
 /**
  * DSL 버전 확인
+ * DSL에 버전이 없으면 package.json의 버전을 사용
  * @param dslData - DSL 데이터
+ * @param packageVersion - package.json의 버전 (optional)
  * @returns DSL 버전
  */
-export function getDSLVersion(dslData: DSLData): string {
-  return dslData.version || "0.0.0";
+export function getDSLVersion(
+  dslData: DSLData,
+  packageVersion?: string
+): string {
+  if (dslData.version) {
+    return dslData.version;
+  }
+
+  // DSL에 버전이 없으면 package 버전 사용
+  if (packageVersion) {
+    return packageVersion;
+  }
+
+  // 둘 다 없으면 기본값
+  return "0.0.0";
 }
 
 /**
