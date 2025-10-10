@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: resolve(__dirname, "generated/index.ts"),
       formats: ["es", "cjs"],
       fileName: (format) => (format === "es" ? "index.mjs" : "index.js"),
     },

@@ -28,7 +28,7 @@
   "types": {
     "filled": {
       "container": {
-        "bg": "{Color/primary/01}",
+        "bg": { "color": "{Color/primary/01}" },
         "border": { "width": 0, "color": "transparent" },
         "shadow": "{Effect/shadow/btn_filled-blue-16}"
       },
@@ -36,45 +36,45 @@
     },
     "outlined-black": {
       "container": {
-        "bg": "transparent",
-        "border": { "width": 1, "color": "{Color/text/03-high}" },
+        "bg": { "color": "{Color/bg/00}" },
+        "border": { "width": 2, "color": "{Color/line/01}" },
         "shadow": "{Effect/shadow/btn_outlined-black-3}"
       },
       "label": { "color": "{Color/text/03-high}" }
     },
     "outlined-blue": {
       "container": {
-        "bg": "transparent",
-        "border": { "width": 1, "color": "{Color/primary/01}" },
+        "bg": { "color": "{Color/bg/00}" },
+        "border": { "width": 2, "color": "{Color/primary/01}" },
         "shadow": "{Effect/shadow/btn_outlined-blue-3}"
       },
       "label": { "color": "{Color/primary/01}" }
     },
     "outlined-red": {
       "container": {
-        "bg": "transparent",
-        "border": { "width": 1, "color": "{Color/state/error}" },
+        "bg": { "color": "{Color/bg/00}" },
+        "border": { "width": 2, "color": "{Color/state/error}" },
         "shadow": "{Effect/shadow/btn_outlined-red-3}"
       },
       "label": { "color": "{Color/text/error}" }
     },
     "text-blue": {
       "container": {
-        "bg": "transparent",
+        "bg": { "color": "{Color/bg/00}" },
         "border": { "width": 0, "color": "transparent" }
       },
       "label": { "color": "{Color/primary/01}" }
     },
     "text-black": {
       "container": {
-        "bg": "transparent",
+        "bg": { "color": "transparent" },
         "border": { "width": 0, "color": "transparent" }
       },
       "label": { "color": "{Color/text/03-high}" }
     },
     "filled-red": {
       "container": {
-        "bg": "{Color/state/error}",
+        "bg": { "color": "{Color/state/error}" },
         "border": { "width": 0, "color": "transparent" },
         "shadow": "{Effect/shadow/btn_filled-red-16}"
       },
