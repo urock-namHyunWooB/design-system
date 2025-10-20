@@ -145,33 +145,79 @@ export class BaseRenderer {
   }
 
   /**
-   * Children 추가
+   * Children 추가 (범용 로직)
    */
   protected addChildren(element: any, ir: ComponentIR): void {
     const parts = ir.structure.base.parts;
+    const hierarchy = ir.structure.base.hierarchy;
 
-    // leftIcon (조건부)
-    if (parts.leftIcon) {
-      const iconConditional = this.hostConfig.createConditional("leftIcon", [
-        this.hostConfig.createElement("icon", ir),
-      ]);
-      element.children.push(iconConditional);
-    }
+    // Hierarchy tree를 순회하여 children 추가
+    const processNode = (nodeId: string) => {
+      const part = parts[nodeId];
+      if (!part) return;
 
-    // label (필수)
-    if (parts.label) {
-      const labelElement = this.hostConfig.createElement("text", ir);
-      labelElement.children.push(this.hostConfig.createExpression("label"));
-      element.children.push(labelElement);
-    }
+      // Slot인 경우 prop으로 렌더링
+      if (part.type === "slot") {
+        const propName = nodeId;
 
-    // rightIcon (조건부)
-    if (parts.rightIcon) {
-      const iconConditional = this.hostConfig.createConditional("rightIcon", [
-        this.hostConfig.createElement("icon", ir),
-      ]);
-      element.children.push(iconConditional);
-    }
+        if (part.required) {
+          // 필수 slot: 직접 렌더링
+          if (part.slotType === "text") {
+            element.children.push(this.hostConfig.createExpression(propName));
+          } else if (part.slotType === "icon") {
+            const iconElement = this.hostConfig.createElement("icon", ir);
+            iconElement.children.push(
+              this.hostConfig.createExpression(propName)
+            );
+            element.children.push(iconElement);
+          } else {
+            // custom, node 등
+            element.children.push(this.hostConfig.createExpression(propName));
+          }
+        } else {
+          // 선택적 slot: 조건부 렌더링
+          if (part.slotType === "text") {
+            const conditionalText = this.hostConfig.createConditional(
+              propName,
+              [this.hostConfig.createExpression(propName)]
+            );
+            element.children.push(conditionalText);
+          } else if (part.slotType === "icon") {
+            const iconElement = this.hostConfig.createElement("icon", ir);
+            iconElement.children.push(
+              this.hostConfig.createExpression(propName)
+            );
+            const conditionalIcon = this.hostConfig.createConditional(
+              propName,
+              [iconElement]
+            );
+            element.children.push(conditionalIcon);
+          } else {
+            const conditionalNode = this.hostConfig.createConditional(
+              propName,
+              [this.hostConfig.createExpression(propName)]
+            );
+            element.children.push(conditionalNode);
+          }
+        }
+      }
+      // container, text 등 다른 타입도 처리 가능
+      else if (part.type === "text") {
+        // Static text element (slot이 아닌 경우)
+        const textElement = this.hostConfig.createElement("text", ir);
+        element.children.push(textElement);
+      }
+    };
+
+    // Hierarchy tree 순회
+    const traverseTree = (node: any) => {
+      processNode(node.id);
+      if (node.children && node.children.length > 0) {
+        node.children.forEach(traverseTree);
+      }
+    };
+
+    traverseTree(hierarchy.tree);
   }
 
   /**

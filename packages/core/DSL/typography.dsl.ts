@@ -18,7 +18,8 @@ export const typographyDSL: TypographyDSL = {
     layout: "row",
     parts: {
       text: {
-        type: "text",
+        type: "slot",
+        slotType: "text",
         required: true,
         description: "텍스트 콘텐츠",
       },
