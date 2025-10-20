@@ -311,6 +311,21 @@ function compileHierarchy(
   hierarchy: any,
   parts: Record<string, IRPartDefinition>
 ): { root: string; tree: PartTreeNode } {
+  // hierarchy가 없으면 첫 번째 part를 root로 사용
+  if (!hierarchy || Object.keys(hierarchy).length === 0) {
+    const firstPartId = Object.keys(parts)[0];
+    if (!firstPartId) {
+      throw new Error("No parts defined");
+    }
+    return {
+      root: firstPartId,
+      tree: {
+        id: firstPartId,
+        children: [],
+      },
+    };
+  }
+
   // Root 찾기
   let rootId: string | null = null;
   for (const [partId, def] of Object.entries(hierarchy)) {
