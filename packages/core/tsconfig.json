@@ -21,6 +21,7 @@
     "types/**/*",
     "DSL/**/*.ts",
     "ir/**/*",
+    "generator/**/*",
     "index.ts"
   ],
   "exclude": ["node_modules", "dist"]

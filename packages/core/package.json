@@ -6,7 +6,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
-    "build:ir": "node scripts/build-ir.mjs",
+    "build:ir": "node ir/build.mjs",
+    "generate": "node generator/generate.mjs",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "validate": "node validate.js",
