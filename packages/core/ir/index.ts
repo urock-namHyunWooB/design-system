@@ -5,6 +5,15 @@
  * DSL → IR → Platform Code 변환 파이프라인의 핵심
  */
 
+// Export Compiler
+export { compile, CompilationError } from "./compiler";
+export type {
+  CompilerOptions,
+  CompilerContext,
+  CompilerError,
+  CompilerWarning,
+} from "./compiler";
+
 // Export IR-specific types only (avoid conflicts with base types)
 export type {
   // Main IR

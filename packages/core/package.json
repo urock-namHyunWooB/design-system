@@ -6,10 +6,12 @@
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
+    "build:ir": "node scripts/build-ir.mjs",
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "validate": "node validate.js",
-    "test": "npm run validate"
+    "test": "npm run validate",
+    "test:ir": "node tests/ir/button-ir.test.mjs"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

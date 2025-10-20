@@ -20,6 +20,7 @@
     "token-resolver/**/*",
     "types/**/*",
     "DSL/**/*.ts",
+    "ir/**/*",
     "index.ts"
   ],
   "exclude": ["node_modules", "dist"]

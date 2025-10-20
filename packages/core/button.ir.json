@@ -1,0 +1,650 @@
+{
+  "metadata": {
+    "component": "button",
+    "version": "1.0.0",
+    "generatedAt": "2025-10-20T06:21:44.572Z",
+    "availableSizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availableVariants": [
+      "filled",
+      "outlined-black",
+      "outlined-blue",
+      "outlined-red",
+      "text-blue",
+      "text-black",
+      "filled-red"
+    ],
+    "availableStates": [
+      "hovered",
+      "pressed",
+      "focused",
+      "disabled"
+    ],
+    "defaults": {
+      "size": "S",
+      "variant": "filled"
+    },
+    "complexity": "simple"
+  },
+  "tokens": {
+    "used": [
+      "{Color/bg/00}",
+      "{Color/disabled}",
+      "{Color/line/01}",
+      "{Color/primary/01}",
+      "{Color/state/error}",
+      "{Color/text/00}",
+      "{Color/text/03-high}",
+      "{Color/text/disabled}",
+      "{Color/text/error}"
+    ],
+    "unresolved": [
+      "{Color/bg/00}",
+      "{Color/disabled}",
+      "{Color/line/01}",
+      "{Color/primary/01}",
+      "{Color/state/error}",
+      "{Color/text/00}",
+      "{Color/text/03-high}",
+      "{Color/text/disabled}",
+      "{Color/text/error}"
+    ]
+  },
+  "structure": {
+    "base": {
+      "layout": "row",
+      "parts": {
+        "container": {
+          "type": "container",
+          "required": false,
+          "description": "버튼 컨테이너",
+          "exposedAsProp": false,
+          "renderStrategy": "normal"
+        },
+        "leftIcon": {
+          "type": "slot",
+          "slotType": "icon",
+          "required": false,
+          "description": "좌측 아이콘 슬롯",
+          "exposedAsProp": true,
+          "renderStrategy": "normal"
+        },
+        "label": {
+          "type": "slot",
+          "slotType": "text",
+          "required": true,
+          "description": "버튼 라벨 슬롯",
+          "exposedAsProp": true,
+          "renderStrategy": "normal"
+        },
+        "rightIcon": {
+          "type": "slot",
+          "slotType": "icon",
+          "required": false,
+          "description": "우측 아이콘 슬롯",
+          "exposedAsProp": true,
+          "renderStrategy": "normal"
+        }
+      },
+      "hierarchy": {
+        "root": "container",
+        "tree": {
+          "id": "container",
+          "children": [
+            {
+              "id": "leftIcon",
+              "children": []
+            },
+            {
+              "id": "label",
+              "children": []
+            },
+            {
+              "id": "rightIcon",
+              "children": []
+            }
+          ]
+        }
+      }
+    },
+    "variants": {
+      "visibility": {},
+      "modifications": []
+    }
+  },
+  "styles": {
+    "sizes": {
+      "S": {
+        "parts": {
+          "container": {
+            "layout": {
+              "height": 28,
+              "borderRadius": 8
+            },
+            "spacing": {
+              "paddingVertical": 4,
+              "paddingHorizontal": 8
+            },
+            "flexbox": {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
+          },
+          "leftIcon": {
+            "spacing": {
+              "marginRight": 4
+            }
+          },
+          "label": {
+            "typography": {
+              "fontSize": 13,
+              "lineHeight": 20
+            }
+          },
+          "rightIcon": {
+            "spacing": {
+              "marginLeft": 4
+            }
+          }
+        }
+      },
+      "M": {
+        "parts": {
+          "container": {
+            "layout": {
+              "height": 40,
+              "borderRadius": 10
+            },
+            "spacing": {
+              "paddingVertical": 8,
+              "paddingHorizontal": 12,
+              "gap": 2
+            },
+            "flexbox": {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
+          },
+          "leftIcon": {
+            "spacing": {
+              "marginRight": 8
+            }
+          },
+          "label": {
+            "typography": {
+              "fontSize": 14,
+              "lineHeight": 20
+            }
+          },
+          "rightIcon": {
+            "spacing": {
+              "marginLeft": 8
+            }
+          }
+        }
+      },
+      "L": {
+        "parts": {
+          "container": {
+            "layout": {
+              "height": 56,
+              "borderRadius": 12
+            },
+            "spacing": {
+              "paddingVertical": 16,
+              "paddingHorizontal": 28,
+              "gap": 4
+            },
+            "flexbox": {
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
+          },
+          "leftIcon": {
+            "spacing": {
+              "marginRight": 12
+            }
+          },
+          "label": {
+            "typography": {
+              "fontSize": 16,
+              "lineHeight": 24
+            }
+          },
+          "rightIcon": {
+            "spacing": {
+              "marginLeft": 12
+            }
+          }
+        }
+      }
+    },
+    "variants": {
+      "filled": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/primary/01}",
+              "border": "transparent"
+            },
+            "borders": {
+              "width": 0,
+              "color": "transparent"
+            },
+            "effects": {
+              "elevation": 2
+            }
+          },
+          "leftIcon": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          },
+          "rightIcon": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            }
+          }
+        }
+      },
+      "outlined-black": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/bg/00}",
+              "border": "{Color/line/01}"
+            },
+            "borders": {
+              "width": 2,
+              "color": "{Color/line/01}"
+            },
+            "effects": {
+              "elevation": 1
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/text/03-high}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          }
+        }
+      },
+      "outlined-blue": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/bg/00}",
+              "border": "{Color/primary/01}"
+            },
+            "borders": {
+              "width": 2,
+              "color": "{Color/primary/01}"
+            },
+            "effects": {
+              "elevation": 1
+            }
+          },
+          "leftIcon": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          },
+          "rightIcon": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            }
+          }
+        }
+      },
+      "outlined-red": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/bg/00}",
+              "border": "{Color/state/error}"
+            },
+            "borders": {
+              "width": 2,
+              "color": "{Color/state/error}"
+            },
+            "effects": {
+              "elevation": 1
+            }
+          },
+          "leftIcon": {
+            "colors": {
+              "foreground": "{Color/text/error}"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/text/error}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          },
+          "rightIcon": {
+            "colors": {
+              "foreground": "{Color/text/error}"
+            }
+          }
+        }
+      },
+      "text-blue": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/bg/00}",
+              "border": "transparent"
+            },
+            "borders": {
+              "width": 0,
+              "color": "transparent"
+            }
+          },
+          "leftIcon": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          },
+          "rightIcon": {
+            "colors": {
+              "foreground": "{Color/primary/01}"
+            }
+          }
+        }
+      },
+      "text-black": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "transparent",
+              "border": "transparent"
+            },
+            "borders": {
+              "width": 0,
+              "color": "transparent"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/text/03-high}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          }
+        }
+      },
+      "filled-red": {
+        "parts": {
+          "container": {
+            "colors": {
+              "background": "{Color/state/error}",
+              "border": "transparent"
+            },
+            "borders": {
+              "width": 0,
+              "color": "transparent"
+            },
+            "effects": {
+              "elevation": 2
+            }
+          },
+          "leftIcon": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            }
+          },
+          "label": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            },
+            "typography": {
+              "fontWeight": 600
+            }
+          },
+          "rightIcon": {
+            "colors": {
+              "foreground": "{Color/text/00}"
+            }
+          }
+        }
+      }
+    },
+    "interactions": {
+      "hovered": {
+        "parts": {
+          "container": {
+            "style": {
+              "elevation": 4,
+              "scale": 1.02
+            }
+          }
+        }
+      },
+      "pressed": {
+        "parts": {
+          "container": {
+            "style": {
+              "elevation": 1,
+              "scale": 0.98
+            }
+          }
+        }
+      },
+      "focused": {
+        "parts": {
+          "container": {
+            "style": {
+              "outlineWidth": 2,
+              "outlineColor": "{Color/primary/01}",
+              "outlineOffset": 2
+            }
+          }
+        }
+      },
+      "disabled": {
+        "parts": {
+          "container": {
+            "style": {
+              "backgroundColor": "{Color/disabled}",
+              "opacity": 0.5,
+              "cursor": "not-allowed"
+            }
+          },
+          "label": {
+            "style": {
+              "color": "{Color/text/disabled}"
+            }
+          }
+        }
+      }
+    },
+    "responsive": {
+      "mobile": {
+        "sizes": {
+          "S": {
+            "container": {
+              "style": {
+                "height": 28,
+                "paddingVertical": 6,
+                "paddingHorizontal": 12
+              }
+            },
+            "label": {
+              "style": {
+                "fontSize": 12
+              }
+            }
+          },
+          "M": {
+            "container": {
+              "style": {
+                "height": 36,
+                "paddingVertical": 10,
+                "paddingHorizontal": 20
+              }
+            },
+            "label": {
+              "style": {
+                "fontSize": 14
+              }
+            }
+          },
+          "L": {
+            "container": {
+              "style": {
+                "height": 44,
+                "paddingVertical": 14,
+                "paddingHorizontal": 28
+              }
+            },
+            "label": {
+              "style": {
+                "fontSize": 16
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "styleRules": {
+    "undefinedPartBehavior": "no-style",
+    "mergeStrategy": {
+      "priority": {
+        "base": 0,
+        "size": 10,
+        "variant": 20,
+        "responsive": 30,
+        "interaction": 40
+      },
+      "mergeType": "deep"
+    }
+  },
+  "animations": {
+    "default": {
+      "type": "spring",
+      "duration": 200,
+      "curve": "easeOut"
+    },
+    "press": {
+      "type": "spring",
+      "stiffness": 300,
+      "damping": 20,
+      "duration": 150
+    },
+    "hover": {
+      "type": "ease",
+      "duration": 200,
+      "curve": "easeOut"
+    }
+  },
+  "propsSchema": {
+    "required": [
+      "label"
+    ],
+    "optional": [
+      "leftIcon",
+      "rightIcon",
+      "size",
+      "variant"
+    ],
+    "types": {
+      "leftIcon": {
+        "type": "node",
+        "role": "content",
+        "description": "좌측 아이콘 슬롯"
+      },
+      "label": {
+        "type": "node",
+        "role": "content",
+        "description": "버튼 라벨 슬롯"
+      },
+      "rightIcon": {
+        "type": "node",
+        "role": "content",
+        "description": "우측 아이콘 슬롯"
+      },
+      "size": {
+        "type": "union",
+        "unionValues": [
+          "S",
+          "M",
+          "L"
+        ],
+        "role": "style-modifier"
+      },
+      "variant": {
+        "type": "union",
+        "unionValues": [
+          "filled",
+          "outlined-black",
+          "outlined-blue",
+          "outlined-red",
+          "text-blue",
+          "text-black",
+          "filled-red"
+        ],
+        "role": "style-modifier"
+      }
+    },
+    "extends": [
+      "HTMLButtonAttributes"
+    ]
+  },
+  "attributes": {},
+  "validation": {
+    "incompatible": [],
+    "requirements": [],
+    "constraints": []
+  },
+  "accessibility": {
+    "role": "button",
+    "tabIndex": 0,
+    "minSize": {
+      "width": 44,
+      "height": 44
+    },
+    "ariaAttributes": {},
+    "keyboardShortcuts": {
+      "Enter": "activate",
+      "Space": "activate"
+    }
+  }
+}
