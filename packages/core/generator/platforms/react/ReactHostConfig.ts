@@ -196,7 +196,6 @@ export class ReactHostConfig implements HostConfig {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderStyle: "solid",
         cursor: "pointer",
         transition: "all 0.2s ease",
       })

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build:css && npm run build:tailwind",
+    "build:css": "node build-css.mjs",
+    "build:tailwind": "node build-tailwind.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
