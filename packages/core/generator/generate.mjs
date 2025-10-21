@@ -58,7 +58,7 @@ async function generateAll() {
 
         // React 컴포넌트 생성
         const result = generateReactComponent(ir, {
-          outputDir: "./generated",
+          outputDir: "./",
           includeComments: true,
           includeTimestamp: true,
           usePlatformFolder: true,
@@ -80,8 +80,9 @@ async function generateAll() {
         }
 
         // 파일 저장
+        const outputBaseDir = path.join(__dirname, "../generated");
         for (const file of result.files) {
-          const fullPath = path.join(coreDir, file.path);
+          const fullPath = path.join(outputBaseDir, file.path);
 
           // 디렉토리가 없으면 생성
           const dir = path.dirname(fullPath);
