@@ -4,10 +4,10 @@
  */
 
 // Types
-export * from "./types";
+export * from "./types/dsl";
 
 // DSL 데이터 export
-export { buttonDSL } from "./DSL/button.dsl";
+export { buttonDSL } from "./dsl/button.dsl";
 
 // Note: IR types는 명시적 import 필요
 // import type { ComponentIR } from "@repo/core/ir";

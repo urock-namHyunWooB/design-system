@@ -23,7 +23,7 @@ async function generateAll() {
     const startTime = Date.now();
 
     // 1. IR 파일 찾기
-    const coreDir = path.join(__dirname, "..");
+    const coreDir = path.join(__dirname, "../generated/ir/");
     const irFiles = fs
       .readdirSync(coreDir)
       .filter((file) => file.endsWith(".ir.json"));

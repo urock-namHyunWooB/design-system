@@ -17,7 +17,7 @@ import type {
   PartType,
   PartDefinition,
   MinSize,
-} from "../types/base";
+} from "../types/dsl/base";
 
 // ============================================================================
 // 1. Metadata

@@ -73,9 +73,16 @@ async function buildAll() {
         // IR을 JSON으로 저장
         const outputPath = path.join(
           __dirname,
-          "..",
+          "../generated/ir/",
           `${componentName}.ir.json`
         );
+
+        // 폴더가 없으면 생성
+        const outputDir = path.dirname(outputPath);
+        if (!fs.existsSync(outputDir)) {
+          fs.mkdirSync(outputDir, { recursive: true });
+        }
+
         const jsonStr = JSON.stringify(ir, null, 2);
         fs.writeFileSync(outputPath, jsonStr, "utf-8");
 

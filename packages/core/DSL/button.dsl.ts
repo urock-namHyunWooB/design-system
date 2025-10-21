@@ -1,4 +1,4 @@
-import type { ButtonDSL } from "../types/button";
+import type { ButtonDSL } from "../types/dsl/button";
 
 /**
  * Button 컴포넌트 DSL 정의

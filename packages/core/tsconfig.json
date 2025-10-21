@@ -19,7 +19,7 @@
     "parser/**/*",
     "token-resolver/**/*",
     "types/**/*",
-    "DSL/**/*.ts",
+    "dsl/**/*.ts",
     "ir/**/*",
     "generator/**/*",
     "index.ts"

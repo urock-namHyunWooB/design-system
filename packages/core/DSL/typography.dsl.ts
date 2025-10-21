@@ -6,7 +6,7 @@
  * - Number: Spoqa Han Sans Neo 폰트 (14~120px)
  */
 
-import type { TypographyDSL } from "../types/typography";
+import type { TypographyDSL } from "../types/dsl/typography";
 
 export const typographyDSL: TypographyDSL = {
   component: "typography",

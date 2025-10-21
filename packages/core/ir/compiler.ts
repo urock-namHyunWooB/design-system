@@ -6,7 +6,7 @@
  * @module ir/compiler
  */
 
-import type { BaseDSL } from "../types/base";
+import type { BaseDSL } from "../types/dsl/base";
 import type {
   ComponentIR,
   ComponentMetadata,
