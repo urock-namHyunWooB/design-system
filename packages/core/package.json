@@ -15,11 +15,20 @@
     "clean": "rm -rf dist",
     "validate": "node validate.js",
     "test": "npm run validate",
-    "test:ir": "node tests/ir/button-ir.test.mjs"
+    "test:ir": "node tests/ir/button-ir.test.mjs",
+    "test:components": "playwright test",
+    "test:components:ui": "playwright test --ui",
+    "test:components:headed": "playwright test --headed",
+    "test:components:debug": "playwright test --debug",
+    "test:all": "pnpm test:ir && pnpm test:components"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.56.1",
+    "@playwright/test": "^1.56.1",
     "@repo/typescript-config": "workspace:*",
     "ajv": "^8.17.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "typescript": "^5.7.2"
   }
 }
