@@ -1,0 +1,401 @@
+{
+  "meta": {
+    "component": "button",
+    "version": "1.0.0",
+    "category": "input",
+    "description": "Primary button component with size and variant support"
+  },
+
+  "structure": {
+    "parts": {
+      "container": {
+        "kind": "native",
+        "tag": "button",
+        "isRoot": true,
+        "description": "Button container element"
+      },
+      "leftIcon": {
+        "kind": "slot",
+        "accepts": "icon",
+        "required": false,
+        "wrapper": "span",
+        "description": "Optional left icon"
+      },
+      "label": {
+        "kind": "slot",
+        "accepts": "text",
+        "required": true,
+        "description": "Button label text"
+      },
+      "rightIcon": {
+        "kind": "slot",
+        "accepts": "icon",
+        "required": false,
+        "wrapper": "span",
+        "description": "Optional right icon"
+      }
+    },
+
+    "order": ["container", "leftIcon", "label", "rightIcon"],
+
+    "layout": {
+      "direction": "horizontal",
+      "alignment": "center",
+      "distribution": "center",
+      "gap": 8
+    }
+  },
+
+  "styles": {
+    "base": {
+      "container": {
+        "layout": {
+          "minWidth": 44
+        },
+        "spacing": {
+          "padding": { "vertical": 4, "horizontal": 8 }
+        },
+        "borders": {
+          "width": 0,
+          "style": "solid",
+          "radius": 8
+        },
+        "typography": {
+          "fontWeight": 600
+        },
+        "interaction": {
+          "cursor": "pointer",
+          "userSelect": "none"
+        },
+        "effects": {
+          "transform": "scale(1)"
+        }
+      },
+      "leftIcon": {
+        "layout": {
+          "width": 16,
+          "height": 16
+        }
+      },
+      "rightIcon": {
+        "layout": {
+          "width": 16,
+          "height": 16
+        }
+      }
+    },
+
+    "sizes": {
+      "S": {
+        "container": {
+          "layout": {
+            "height": 28
+          },
+          "spacing": {
+            "padding": { "vertical": 4, "horizontal": 8 }
+          },
+          "borders": {
+            "radius": 8
+          }
+        },
+        "label": {
+          "typography": {
+            "fontSize": 13,
+            "lineHeight": "20px"
+          }
+        },
+        "leftIcon": {
+          "layout": {
+            "width": 14,
+            "height": 14
+          }
+        },
+        "rightIcon": {
+          "layout": {
+            "width": 14,
+            "height": 14
+          }
+        }
+      },
+      "M": {
+        "container": {
+          "layout": {
+            "height": 40
+          },
+          "spacing": {
+            "padding": { "vertical": 8, "horizontal": 12 }
+          },
+          "borders": {
+            "radius": 10
+          }
+        },
+        "label": {
+          "typography": {
+            "fontSize": 14,
+            "lineHeight": "20px"
+          }
+        },
+        "leftIcon": {
+          "layout": {
+            "width": 16,
+            "height": 16
+          }
+        },
+        "rightIcon": {
+          "layout": {
+            "width": 16,
+            "height": 16
+          }
+        }
+      },
+      "L": {
+        "container": {
+          "layout": {
+            "height": 56
+          },
+          "spacing": {
+            "padding": { "vertical": 16, "horizontal": 28 }
+          },
+          "borders": {
+            "radius": 12
+          }
+        },
+        "label": {
+          "typography": {
+            "fontSize": 16,
+            "lineHeight": "24px"
+          }
+        },
+        "leftIcon": {
+          "layout": {
+            "width": 18,
+            "height": 18
+          }
+        },
+        "rightIcon": {
+          "layout": {
+            "width": 18,
+            "height": 18
+          }
+        }
+      }
+    },
+
+    "variants": {
+      "filled": {
+        "container": {
+          "colors": {
+            "background": "var(--color-primary)",
+            "foreground": "var(--color-text-inverse)"
+          }
+        },
+        "leftIcon": {
+          "colors": {
+            "foreground": "var(--color-text-inverse)"
+          }
+        },
+        "rightIcon": {
+          "colors": {
+            "foreground": "var(--color-text-inverse)"
+          }
+        }
+      },
+      "outlined": {
+        "container": {
+          "colors": {
+            "background": "transparent",
+            "foreground": "var(--color-primary)",
+            "border": "var(--color-primary)"
+          },
+          "borders": {
+            "width": 2
+          }
+        },
+        "leftIcon": {
+          "colors": {
+            "foreground": "var(--color-primary)"
+          }
+        },
+        "rightIcon": {
+          "colors": {
+            "foreground": "var(--color-primary)"
+          }
+        }
+      },
+      "text": {
+        "container": {
+          "colors": {
+            "background": "transparent",
+            "foreground": "var(--color-primary)"
+          },
+          "borders": {
+            "width": 0
+          }
+        },
+        "leftIcon": {
+          "colors": {
+            "foreground": "var(--color-primary)"
+          }
+        },
+        "rightIcon": {
+          "colors": {
+            "foreground": "var(--color-primary)"
+          }
+        }
+      }
+    },
+
+    "states": {
+      "hover": {
+        "container": {
+          "effects": {
+            "opacity": 0.9,
+            "transform": "scale(1.02)"
+          }
+        }
+      },
+      "active": {
+        "container": {
+          "effects": {
+            "opacity": 0.8,
+            "transform": "scale(0.98)"
+          }
+        }
+      },
+      "disabled": {
+        "container": {
+          "effects": {
+            "opacity": 0.5
+          },
+          "interaction": {
+            "cursor": "not-allowed",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    },
+
+    "responsive": {
+      "mobile": {
+        "sizes": {
+          "S": {
+            "container": {
+              "layout": {
+                "height": 28
+              },
+              "spacing": {
+                "padding": { "vertical": 6, "horizontal": 12 }
+              }
+            },
+            "label": {
+              "typography": {
+                "fontSize": 12
+              }
+            }
+          },
+          "M": {
+            "container": {
+              "layout": {
+                "height": 36
+              },
+              "spacing": {
+                "padding": { "vertical": 10, "horizontal": 20 }
+              }
+            },
+            "label": {
+              "typography": {
+                "fontSize": 14
+              }
+            }
+          },
+          "L": {
+            "container": {
+              "layout": {
+                "height": 44
+              },
+              "spacing": {
+                "padding": { "vertical": 14, "horizontal": 28 }
+              }
+            },
+            "label": {
+              "typography": {
+                "fontSize": 16
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "motion": {
+    "transitions": {
+      "transform": {
+        "duration": 200,
+        "easing": "ease-out"
+      },
+      "opacity": {
+        "duration": 150,
+        "easing": "ease"
+      }
+    }
+  },
+
+  "props": {
+    "size": {
+      "type": {
+        "kind": "union",
+        "values": ["S", "M", "L"]
+      },
+      "default": "M"
+    },
+    "variant": {
+      "type": {
+        "kind": "union",
+        "values": ["filled", "outlined", "text"]
+      },
+      "default": "filled"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+
+  "events": {
+    "onClick": {
+      "signature": "(event: MouseEvent) => void",
+      "description": "Fired when button is clicked"
+    }
+  },
+
+  "accessibility": {
+    "role": "button",
+    "keyboard": {
+      "Enter": "click",
+      "Space": "click"
+    },
+    "minTouchTarget": {
+      "width": 44,
+      "height": 44
+    }
+  },
+
+  "metadata": {
+    "examples": [
+      {
+        "title": "Basic usage",
+        "code": "<Button size=\"M\" variant=\"filled\">Click me</Button>"
+      },
+      {
+        "title": "With icon",
+        "code": "<Button leftIcon={<Icon />}>Click me</Button>"
+      },
+      {
+        "title": "Disabled",
+        "code": "<Button disabled>Click me</Button>"
+      }
+    ],
+    "tags": ["button", "interactive", "form"]
+  }
+}
