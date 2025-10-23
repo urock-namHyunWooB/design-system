@@ -58,10 +58,46 @@ export interface HierarchyDefinition {
   portal?: boolean;
 }
 
+/** Part 위치 정의 */
+export interface PartPosition {
+  /** 위치 (start = 좌/상, center = 중앙, end = 우/하) */
+  side: "start" | "center" | "end";
+
+  /** 렌더링 순서 (작을수록 먼저) */
+  order: number;
+
+  /** Flex 속성 (0 = 고정, 1+ = 비율) */
+  flex?: number;
+
+  /** 정렬 */
+  align?: "start" | "center" | "end" | "stretch";
+}
+
+/** 레이아웃 상세 설정 */
+export interface LayoutConfig {
+  /** 레이아웃 방향 */
+  direction: "horizontal" | "vertical";
+
+  /** 전체 정렬 */
+  alignment?: "start" | "center" | "end" | "stretch";
+
+  /** 분배 방식 */
+  distribution?:
+    | "start"
+    | "center"
+    | "end"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+
+  /** Part별 위치 설정 */
+  positions?: Record<string, PartPosition>;
+}
+
 /** 컴포넌트 구조 정의 */
 export interface ComponentStructure {
-  /** 레이아웃 방향 */
-  layout: LayoutDirection;
+  /** 레이아웃 설정 (간단한 string 또는 상세 config) */
+  layout: LayoutDirection | LayoutConfig;
 
   /** Parts 정의 (Slot 포함) */
   parts: Record<string, PartDefinition>;

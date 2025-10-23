@@ -14,6 +14,7 @@ import type {
   AnimationCurve,
   AnimationConfig,
   LayoutDirection,
+  LayoutConfig,
   PartType,
   PartDefinition,
   MinSize,
@@ -102,8 +103,8 @@ export interface PartTreeNode {
 
 /** 기본 구조 정의 */
 export interface BaseStructure {
-  /** 기본 레이아웃 방향 */
-  layout: LayoutDirection;
+  /** 기본 레이아웃 설정 (간단한 string 또는 상세 config) */
+  layout: LayoutDirection | LayoutConfig;
 
   /** Parts 정의 */
   parts: Record<string, IRPartDefinition>;

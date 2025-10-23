@@ -16,7 +16,32 @@ export const buttonDSL: ButtonDSL = {
   // Structure: 컴포넌트 구조
   // ============================================================================
   structure: {
-    layout: "row",
+    // 레이아웃 설정 (명시적 위치 정보)
+    layout: {
+      direction: "horizontal",
+      alignment: "center",
+      distribution: "center",
+      positions: {
+        leftIcon: {
+          side: "start",
+          order: 0,
+          flex: 0,
+          align: "center",
+        },
+        label: {
+          side: "center",
+          order: 1,
+          flex: 0,
+          align: "center",
+        },
+        rightIcon: {
+          side: "end",
+          order: 2,
+          flex: 0,
+          align: "center",
+        },
+      },
+    },
 
     // Parts 정의 (Slot 포함)
     parts: {
@@ -76,16 +101,17 @@ export const buttonDSL: ButtonDSL = {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
+          gap: 4,
         },
       },
       leftIcon: {
-        style: { size: 14, marginRight: 4 },
+        style: { size: 14 },
       },
       label: {
         style: { fontSize: 13, lineHeight: 20 },
       },
       rightIcon: {
-        style: { size: 14, marginLeft: 4 },
+        style: { size: 14 },
       },
     },
     M: {
@@ -98,17 +124,17 @@ export const buttonDSL: ButtonDSL = {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: 2,
+          gap: 8,
         },
       },
       leftIcon: {
-        style: { size: 16, marginRight: 8 },
+        style: { size: 16 },
       },
       label: {
         style: { fontSize: 14, lineHeight: 20 },
       },
       rightIcon: {
-        style: { size: 16, marginLeft: 8 },
+        style: { size: 16 },
       },
     },
     L: {
@@ -121,17 +147,17 @@ export const buttonDSL: ButtonDSL = {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: 4,
+          gap: 12,
         },
       },
       leftIcon: {
-        style: { size: 18, marginRight: 12 },
+        style: { size: 18 },
       },
       label: {
         style: { fontSize: 16, lineHeight: 24 },
       },
       rightIcon: {
-        style: { size: 18, marginLeft: 12 },
+        style: { size: 18 },
       },
     },
   },
@@ -171,11 +197,17 @@ export const buttonDSL: ButtonDSL = {
           elevation: 1,
         },
       },
+      leftIcon: {
+        style: { color: "{Color/text/03-high}" },
+      },
       label: {
         style: {
           color: "{Color/text/03-high}",
           fontWeight: 600,
         },
+      },
+      rightIcon: {
+        style: { color: "{Color/text/03-high}" },
       },
     },
     "outlined-blue": {
@@ -251,11 +283,17 @@ export const buttonDSL: ButtonDSL = {
           borderColor: "transparent",
         },
       },
+      leftIcon: {
+        style: { color: "{Color/text/03-high}" },
+      },
       label: {
         style: {
           color: "{Color/text/03-high}",
           fontWeight: 600,
         },
+      },
+      rightIcon: {
+        style: { color: "{Color/text/03-high}" },
       },
     },
     "filled-red": {
@@ -360,10 +398,17 @@ export const buttonDSL: ButtonDSL = {
             height: 28,
             paddingVertical: 6,
             paddingHorizontal: 12,
+            gap: 4,
           },
+        },
+        leftIcon: {
+          style: { size: 14 },
         },
         label: {
           style: { fontSize: 12 },
+        },
+        rightIcon: {
+          style: { size: 14 },
         },
       },
       M: {
@@ -372,10 +417,17 @@ export const buttonDSL: ButtonDSL = {
             height: 36,
             paddingVertical: 10,
             paddingHorizontal: 20,
+            gap: 6,
           },
+        },
+        leftIcon: {
+          style: { size: 16 },
         },
         label: {
           style: { fontSize: 14 },
+        },
+        rightIcon: {
+          style: { size: 16 },
         },
       },
       L: {
@@ -384,10 +436,17 @@ export const buttonDSL: ButtonDSL = {
             height: 44,
             paddingVertical: 14,
             paddingHorizontal: 28,
+            gap: 10,
           },
+        },
+        leftIcon: {
+          style: { size: 18 },
         },
         label: {
           style: { fontSize: 16 },
+        },
+        rightIcon: {
+          style: { size: 18 },
         },
       },
     },
