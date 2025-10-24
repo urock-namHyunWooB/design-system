@@ -1,5 +1,3 @@
-import type { PropType } from "../../types/spec";
+import type { PropDefinitions } from "../../types/spec";
 
-export interface Props {
-  [key: string]: PropType;
-}
+export type Props = PropDefinitions;

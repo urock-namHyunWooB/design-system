@@ -287,7 +287,17 @@ export type PropType =
   | { type: "node" }
   | { type: "function"; signature?: string };
 
-export interface PropDefinition extends PropType {
+export interface PropDefinition {
+  type:
+    | "string"
+    | "number"
+    | "boolean"
+    | "node"
+    | "function"
+    | "any"
+    | "array"
+    | "object";
+  default?: string | number | boolean | any[] | object | Function;
   /** 필수 여부 */
   required?: boolean;
 
