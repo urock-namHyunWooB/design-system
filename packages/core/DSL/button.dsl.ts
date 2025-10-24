@@ -1,95 +1,111 @@
 import type { ButtonDSL } from "../types/dsl/button";
+import type { ComponentSpec } from "../dsl/types";
 
 /**
  * Button 컴포넌트 DSL 정의
- *
- * Structure: 컴포넌트 구조 (parts)
- * Size: 크기/레이아웃 (height, padding, fontSize 등)
- * Type: 색상/스타일 (backgroundColor, borderWidth 등)
- * Interactions: 상태별 스타일 (hover, pressed 등)
- * Motion: 애니메이션 설정
  */
-export const buttonDSL: ButtonDSL = {
-  component: "button",
+export const buttonDSL: ComponentSpec = {
+  type: "button",
 
-  // ============================================================================
-  // Structure: 컴포넌트 구조
-  // ============================================================================
   structure: {
-    // 레이아웃 설정 (명시적 위치 정보)
-    layout: {
-      direction: "horizontal",
-      alignment: "center",
-      distribution: "center",
-      positions: {
-        leftIcon: {
-          side: "start",
-          order: 0,
-          flex: 0,
-          align: "center",
+    tree: {
+      id: "root",
+      type: "container",
+      children: [
+        {
+          id: "leftIconContainer",
+          type: "container",
+          children: [
+            {
+              id: "leftIcon",
+              type: "slot",
+            },
+          ],
         },
-        label: {
-          side: "center",
-          order: 1,
-          flex: 0,
-          align: "center",
+        {
+          id: "labelContainer",
+          type: "container",
+          children: [
+            {
+              id: "label",
+              type: "slot",
+            },
+          ],
         },
-        rightIcon: {
-          side: "end",
-          order: 2,
-          flex: 0,
-          align: "center",
+        {
+          id: "rightIconContainer",
+          type: "container",
+          children: [
+            {
+              id: "rightIcon",
+              type: "slot",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  styles: {
+    base: {
+      root: {
+        style: {
+          display: "flex",
+          flexDirection: "row",
+          padding: 8,
+          borderRadius: 8,
         },
       },
     },
+    sizes: {},
+    states: {},
+    variants: {},
+  },
 
-    // Parts 정의 (Slot 포함)
-    parts: {
-      container: {
-        type: "container",
-        description: "버튼 컨테이너",
-      },
-      leftIcon: {
-        type: "slot",
-        slotType: "icon",
-        required: false,
-        description: "좌측 아이콘 슬롯",
-      },
-      label: {
-        type: "slot",
-        slotType: "text",
-        required: true,
-        description: "버튼 라벨 슬롯",
-      },
-      rightIcon: {
-        type: "slot",
-        slotType: "icon",
-        required: false,
-        description: "우측 아이콘 슬롯",
-      },
+  props: {
+    label: {
+      type: "string",
+      required: true,
     },
-
-    // 계층 구조
-    hierarchy: {
-      container: {
-        parent: null,
-        children: ["leftIcon", "label", "rightIcon"],
-      },
-      leftIcon: {
-        parent: "container",
-      },
-      label: {
-        parent: "container",
-      },
-      rightIcon: {
-        parent: "container",
-      },
+    leftIcon: {
+      type: "icon",
+      required: false,
+    },
+    rightIcon: {
+      type: "icon",
+      required: false,
+    },
+    size: {
+      type: "string",
+      required: false,
+      default: "M",
+      options: ["S", "M", "L"],
+    },
+    variant: {
+      type: "string",
+      required: false,
+      default: "filled",
+      options: [
+        "filled",
+        "outlined-black",
+        "outlined-blue",
+        "outlined-red",
+        "text-blue",
+        "text-black",
+        "filled-red",
+      ],
+    },
+    onClick: {
+      type: "function",
+      required: false,
+      default: () => {},
+    },
+    disabled: {
+      type: "boolean",
+      required: false,
+      default: false,
     },
   },
 
-  // ============================================================================
-  // Sizes: 크기/레이아웃 정의 (Parts별)
-  // ============================================================================
   sizes: {
     S: {
       container: {
